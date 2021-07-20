@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Purchase {
+struct Purchase: Decodable, Encodable {
     let amount: Double
     let date: String
     let description: String
