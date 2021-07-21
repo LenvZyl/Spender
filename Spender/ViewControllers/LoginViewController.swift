@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import RxCocoa
 import RxSwift
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -40,9 +41,21 @@ class LoginViewController: UIViewController {
         loginViewModel.isValid().map { $0 ? 1 : 0.2}.bind(to: loginButton.rx.alpha).disposed(by: disposeBag)
     }
     @IBAction func loginPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBar") as! MainTabBarController
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(mainTabBarController, user ?? nil)
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { [weak self] authResult, error in
+            guard let strongSelf = self else {
+                return
+            }
+            guard error == nil else {
+                let alert = UIAlertController(title:"Invalid Login", message: error?.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {_ in}))
+                strongSelf.present(alert, animated: true, completion: nil)
+                return
+            }
+           
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBar") as! MainTabBarController
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(mainTabBarController, self?.user ?? nil)
+        }
     }
 }
 

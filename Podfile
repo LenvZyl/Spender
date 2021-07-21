@@ -11,4 +11,9 @@ target 'Spender' do
    pod 'RxSwift'
    pod 'RxCocoa'
 
+  # Pods for Firebase and Google Analytics
+   pod 'Firebase/Analytics'
+   pod 'Firebase/Auth'
+
+
 end
