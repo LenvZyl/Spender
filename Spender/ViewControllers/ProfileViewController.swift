@@ -14,4 +14,9 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
+    @IBAction func logoutPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginNavController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(loginNavController)
+    }
 }

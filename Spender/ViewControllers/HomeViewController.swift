@@ -18,6 +18,9 @@ class HomeViewController: UIViewController {
     private var purchaseListViewModel: PurchaseListViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setView()
+    }
+    private func setView(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -34,6 +37,11 @@ class HomeViewController: UIViewController {
             Purchase(amount: 110.0, date: "\(Date())", description: "Games")
         ])
         updateTableView()
+    }
+    func checkLogin(){
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let screen = storyboard.instantiateInitialViewController()
+        self.present(screen!, animated: true, completion: nil)
     }
     
 }
