@@ -196,7 +196,7 @@
         <!--Home-->
         <scene sceneID="Y2z-08-axr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p8m-ZJ-3q1" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p8m-ZJ-3q1" customClass="HomeNavigationController" customModule="Spender" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="NXQ-Gk-yui"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZRF-yC-mPm">
@@ -237,7 +237,7 @@
         <!--Profile-->
         <scene sceneID="ZrN-jZ-mkJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vfT-nz-pNZ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vfT-nz-pNZ" customClass="ProfileNavigationController" customModule="Spender" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="s70-cd-j6H"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TTM-d5-bvI">
@@ -261,9 +261,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hR1-sb-WGV">
+                                <rect key="frame" x="30" y="168" width="354" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="4bU-Sk-nXg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9eC-27-ZR3">
+                                <rect key="frame" x="30" y="222" width="354" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="XN2-5m-Hj6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTN-FP-6dg">
-                                <rect key="frame" x="188" y="433" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
+                                <rect key="frame" x="50" y="316" width="314" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CUn-Mo-ze5"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="Ma7-nj-0UQ" eventType="touchUpInside" id="RK4-ZK-H5N"/>
                                 </connections>
@@ -272,18 +294,27 @@
                         <viewLayoutGuide key="safeArea" id="Rek-Gn-qKt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kTN-FP-6dg" firstAttribute="centerY" secondItem="57x-cN-Igf" secondAttribute="centerY" id="K7l-7f-Ath"/>
-                            <constraint firstItem="kTN-FP-6dg" firstAttribute="centerX" secondItem="57x-cN-Igf" secondAttribute="centerX" id="g0H-fO-vFT"/>
+                            <constraint firstItem="kTN-FP-6dg" firstAttribute="leading" secondItem="Rek-Gn-qKt" secondAttribute="leading" constant="50" id="31n-Hj-rKI"/>
+                            <constraint firstItem="9eC-27-ZR3" firstAttribute="top" secondItem="hR1-sb-WGV" secondAttribute="bottom" constant="20" id="Jql-yG-lTS"/>
+                            <constraint firstItem="kTN-FP-6dg" firstAttribute="top" secondItem="9eC-27-ZR3" secondAttribute="bottom" constant="60" id="LoZ-OW-DMc"/>
+                            <constraint firstItem="hR1-sb-WGV" firstAttribute="top" secondItem="Rek-Gn-qKt" secondAttribute="top" constant="80" id="Ten-Vc-Xpc"/>
+                            <constraint firstItem="hR1-sb-WGV" firstAttribute="leading" secondItem="Rek-Gn-qKt" secondAttribute="leading" constant="30" id="VPF-Uz-6md"/>
+                            <constraint firstItem="Rek-Gn-qKt" firstAttribute="trailing" secondItem="9eC-27-ZR3" secondAttribute="trailing" constant="30" id="bUh-Nr-bLv"/>
+                            <constraint firstItem="9eC-27-ZR3" firstAttribute="leading" secondItem="Rek-Gn-qKt" secondAttribute="leading" constant="30" id="bfa-Xw-p35"/>
+                            <constraint firstItem="Rek-Gn-qKt" firstAttribute="trailing" secondItem="hR1-sb-WGV" secondAttribute="trailing" constant="30" id="hM4-G8-F3C"/>
+                            <constraint firstItem="Rek-Gn-qKt" firstAttribute="trailing" secondItem="kTN-FP-6dg" secondAttribute="trailing" constant="50" id="tPc-4E-pA3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QRf-V9-sPU"/>
                     <connections>
+                        <outlet property="emailTextField" destination="hR1-sb-WGV" id="DHU-PQ-fBd"/>
                         <outlet property="loginButton" destination="kTN-FP-6dg" id="qoB-eE-hYy"/>
+                        <outlet property="passwordTextField" destination="9eC-27-ZR3" id="dKm-iB-inr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCi-DB-2UP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1812" y="-175"/>
+            <point key="canvasLocation" x="-1813.0434782608697" y="-175.44642857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="D9X-6r-81M">

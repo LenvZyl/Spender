@@ -15,8 +15,17 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         guard let viewControllers = viewControllers else {return}
-        for _ in viewControllers {
-            //set userId in ViewControllers
+        for vc in viewControllers {
+            if let homeNavigationController = vc as? HomeNavigationController {
+                if let home = homeNavigationController.viewControllers.first as? HomeViewController {
+                    home.user = user
+                }
+            }
+            if let profileNavigationController = vc as? ProfileNavigationController {
+                if let profile = profileNavigationController.viewControllers.first as? ProfileViewController {
+                    profile.user = user
+                }
+            }
         }
     }
 }

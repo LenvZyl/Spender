@@ -16,8 +16,12 @@ class HomeViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private var purchaseListViewModel: PurchaseListViewModel!
+    
+    var user : [String:String]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(user ?? "A")
         setView()
     }
     private func setView(){

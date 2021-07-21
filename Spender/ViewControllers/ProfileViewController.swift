@@ -10,8 +10,11 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    var user : [String:String]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(user ?? "A")
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     @IBAction func logoutPressed(_ sender: Any) {
