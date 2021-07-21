@@ -33,6 +33,16 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchPurchases(){
+//        guard let appUser = user else {
+//            return
+//        }
+//        URLRequest.load(resource: Purchases.all, parameters: appUser).subscribe(onNext: { purchasesResponse in
+//            let purchaseList = purchasesResponse.purchaseList
+//            self.purchaseListViewModel = PurchaseListViewModel(purchaseList)
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }).disposed(by: disposeBag)
         self.purchaseListViewModel = PurchaseListViewModel([
             Purchase(amount: 101.0, date: "\(Date())", description: "Stuff"),
             Purchase(amount: 110.0, date: "\(Date())", description: "Fuel"),

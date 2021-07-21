@@ -8,5 +8,5 @@
 import Foundation
 
 class Commons {
-    
+    static let baseApiUrl = "https://"
 }
