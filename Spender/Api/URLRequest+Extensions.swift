@@ -25,6 +25,7 @@ extension URLRequest {
                     fatalError(error.localizedDescription)
                 }
             }
+            request.httpMethod = "GET"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             return URLSession.shared.rx.data(request: request)
