@@ -372,6 +372,12 @@
                                     <action selector="registerPressed:" destination="oVl-yw-jRg" eventType="touchUpInside" id="zG8-ec-Vaf"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="bsL-oS-QVB">
+                                <rect key="frame" x="100" y="370" width="214" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iRg-N5-1wS"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Aay-rz-M9n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -383,15 +389,19 @@
                             <constraint firstItem="N6t-d2-hAf" firstAttribute="leading" secondItem="Aay-rz-M9n" secondAttribute="leading" constant="30" id="Lme-Sk-nOF"/>
                             <constraint firstItem="Oll-9h-Fjm" firstAttribute="top" secondItem="dQ7-Zd-62W" secondAttribute="bottom" constant="20" id="MOd-U4-X2S"/>
                             <constraint firstItem="Aay-rz-M9n" firstAttribute="trailing" secondItem="N6t-d2-hAf" secondAttribute="trailing" constant="30" id="MtO-be-a7r"/>
+                            <constraint firstItem="bsL-oS-QVB" firstAttribute="leading" secondItem="Aay-rz-M9n" secondAttribute="leading" constant="100" id="Qpm-Mg-CHk"/>
                             <constraint firstItem="dQ7-Zd-62W" firstAttribute="leading" secondItem="Aay-rz-M9n" secondAttribute="leading" constant="30" id="Yq0-CT-Kas"/>
+                            <constraint firstItem="Aay-rz-M9n" firstAttribute="trailing" secondItem="bsL-oS-QVB" secondAttribute="trailing" constant="100" id="aMS-yd-Bq1"/>
                             <constraint firstItem="Aay-rz-M9n" firstAttribute="trailing" secondItem="GdJ-Qe-7cZ" secondAttribute="trailing" constant="50" id="dx8-Qp-Lk8"/>
                             <constraint firstItem="GdJ-Qe-7cZ" firstAttribute="leading" secondItem="Aay-rz-M9n" secondAttribute="leading" constant="50" id="pX5-Fr-xBp"/>
                             <constraint firstItem="Oll-9h-Fjm" firstAttribute="leading" secondItem="Aay-rz-M9n" secondAttribute="leading" constant="30" id="vNv-Ek-efd"/>
+                            <constraint firstItem="bsL-oS-QVB" firstAttribute="top" secondItem="Oll-9h-Fjm" secondAttribute="bottom" constant="60" id="ymT-FO-oJ9"/>
                             <constraint firstItem="Aay-rz-M9n" firstAttribute="trailing" secondItem="Oll-9h-Fjm" secondAttribute="trailing" constant="30" id="zl5-FR-mee"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pY7-wc-9hQ"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="bsL-oS-QVB" id="Bc4-mR-QHG"/>
                         <outlet property="emailTextField" destination="N6t-d2-hAf" id="bvS-k9-Nbp"/>
                         <outlet property="passwordConfirmTextField" destination="Oll-9h-Fjm" id="c2N-Y1-4XP"/>
                         <outlet property="passwordTextField" destination="dQ7-Zd-62W" id="d46-OL-71O"/>

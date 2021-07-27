@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let registerViewModel = RegisterViewModel()
     private let disposeBag = DisposeBag()
@@ -42,8 +43,8 @@ class RegisterViewController: UIViewController {
         registerViewModel.isValid().bind(to: registerButton.rx.isEnabled).disposed(by: disposeBag)
         registerViewModel.isValid().map { $0 ? 1 : 0.2}.bind(to: registerButton.rx.alpha).disposed(by: disposeBag)
         registerViewModel.isLoadingRegister.bind(to: registerButton.rx.isHidden).disposed(by: disposeBag)
-//        registerViewModel.isLoadingSignIn.bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
-//        registerViewModel.isLoadingSignIn.map(!).bind(to: activityIndicator.rx.isHidden).disposed(by: disposeBag)
+        registerViewModel.isLoadingRegister.bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
+        registerViewModel.isLoadingRegister.map(!).bind(to: activityIndicator.rx.isHidden).disposed(by: disposeBag)
         
     }
     @IBAction func registerPressed(_ sender: Any) {
@@ -57,7 +58,7 @@ class RegisterViewController: UIViewController {
                 strongSelf.present(alert, animated: true, completion: nil)
                 return
             }
-            self?.dismiss(animated: true, completion: nil)
+            strongSelf.dismiss(animated: true, completion: nil)
         }).disposed(by: disposeBag)
     }
 }
